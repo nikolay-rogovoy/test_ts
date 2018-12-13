@@ -1,0 +1,17 @@
+{
+    "name": "test_ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "npm run build && cd dist && node index.js",
+      "start-debug": "npm run build && cd dist && node --inspect-brk index.js",
+      "build": "tsc"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^10.12.12",
+        "typescript": "^3.2.2"
+    }
+}

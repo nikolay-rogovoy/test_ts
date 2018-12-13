@@ -1,0 +1,7 @@
+.idea/
+base_backup/
+typings/
+generated/
+dist/
+node_modules/
+npm-debug.log
