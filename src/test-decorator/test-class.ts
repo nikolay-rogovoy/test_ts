@@ -1,4 +1,5 @@
-import { ValidateDecorator } from "./validate-decorator";
+import { ValidateDecorator } from './validate-decorator';
+import config from '../config/config';
 
 /***/
 export class TestClass {
@@ -10,9 +11,12 @@ export class TestClass {
         if (param % 2 === 1) {
             // throw new Error('ValidateDecorator');
         }
-        console.log(`validator ${param}`);
     })
+    /***/
     f(param: number) {
-        console.log(`from f ${param}`);
+    }
+    /***/
+    ff(): string {
+        return config.get('test:test');
     }
 }

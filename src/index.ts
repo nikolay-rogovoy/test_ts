@@ -4,8 +4,7 @@ import { TestClass } from "./test-decorator/test-class";
     console.log('start');
 
     let cl = new TestClass();
-    cl.f(12);
-    cl.f(21);
+    console.log(cl.ff());
 
     console.log('end');
 })()

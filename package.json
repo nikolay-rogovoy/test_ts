@@ -4,14 +4,47 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "start": "npm run build && cd dist && node index.js",
-      "start-debug": "npm run build && cd dist && node --inspect-brk index.js",
-      "build": "tsc"
+        "start": "npm run build && cd dist && node index.js",
+        "start-debug": "npm run build && cd dist && node --inspect-brk index.js",
+        "build": "node tools/pre-build.js & tsc && node tools/copy.js",
+        "test": "npm run build && cd dist && node --inspect-brk ../node_modules/.bin/nyc mocha test",
+        "test2": "npm run build && cd dist && nyc mocha test"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.5",
         "@types/node": "^10.12.12",
+        "chai": "^4.2.0",
+        "chai-arrays": "^2.0.0",
+        "chai-http": "^4.0.0",
+        "mocha": "^5.2.0",
+        "mocha-typescript": "^1.1.17",
+        "ncp": "^2.0.0",
+        "nyc": "^13.1.0",
+        "rimraf": "^2.6.2",
         "typescript": "^3.2.2"
+    },
+    "nyc": {
+        "check-coverage": true,
+        "lines": 0,
+        "statements": 0,
+        "functions": 0,
+        "branches": 0,
+        "include": [
+            "dist/**/*.js"
+        ],
+        "exclude": [
+            "test/**/*.js"
+        ],
+        "reporter": [
+            "lcov",
+            "text-summary"
+        ],
+        "all": true
+    },
+    "dependencies": {
+        "nconf": "^0.10.0"
     }
 }
